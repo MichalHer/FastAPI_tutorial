@@ -16,7 +16,6 @@ class Post(Base):
     published = Column(Boolean, server_default="TRUE", nullable=False)
     create_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text("now()"))
     owner_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
-
     owner = relationship("User")
 
 class User(Base):
@@ -26,8 +25,6 @@ class User(Base):
     email = Column(String, nullable=False, unique=True)
     password = Column(String, nullable=False)
     create_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text("now()"))
-    phone_number = Column(String)
-    address = Column(String, nullable=False)
 
 class Vote(Base):
     __tablename__="votes"

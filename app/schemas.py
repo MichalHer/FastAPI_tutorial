@@ -22,7 +22,6 @@ class UserLogin(BaseModel):
     password: str
 
 class PostBase(BaseModel):
-    id: int
     title: str
     content: str
     published: bool = True
@@ -31,6 +30,7 @@ class PostCreate(PostBase):
     pass
 
 class Post(PostBase):
+    id: int
     create_at: datetime
     owner_id: int
     owner: UserOut
